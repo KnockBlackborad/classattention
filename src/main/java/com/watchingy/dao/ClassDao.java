@@ -10,5 +10,5 @@ public interface ClassDao {
     ClassInfo getByUidAndTime(String uid, Timestamp timestamp);
     List<ClassInfo> getByUid(String id);
     void add(ClassInfo classInfo);
-    int createClassOrfer(String uid);
+    int createClassOrder(String uid);
 }
