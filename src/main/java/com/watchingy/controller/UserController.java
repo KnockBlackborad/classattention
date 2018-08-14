@@ -2,7 +2,7 @@ package com.watchingy.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.watchingy.exception.UserException;
-import com.watchingy.model.User;
+import com.watchingy.model.UserInfo;
 import com.watchingy.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,8 +81,8 @@ public class UserController {
     public String register(@RequestBody String json){
         try {
             userService = new UserService();
-            User user = JSON.parseObject(json, User.class);
-            userService.register(user);
+            UserInfo userInfo = JSON.parseObject(json, UserInfo.class);
+            userService.register(userInfo);
             return "successful";
         } catch (IOException | UserException e) {
             e.printStackTrace();
@@ -97,12 +97,12 @@ public class UserController {
     public String login(@RequestBody String json){
         try {
             userService = new UserService();
-            User request = JSON.parseObject(json, User.class);
-            User user = userService.login(request.getUsername(), request.getPassword());
-            if(user == null){
+            UserInfo request = JSON.parseObject(json, UserInfo.class);
+            UserInfo userInfo = userService.login(request.getUsername(), request.getPassword());
+            if(userInfo == null){
                 return "error";
             }else{
-                return JSON.toJSONString(user);
+                return JSON.toJSONString(userInfo);
             }
         } catch (IOException e) {
             e.printStackTrace();

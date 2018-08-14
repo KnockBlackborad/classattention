@@ -2,7 +2,7 @@ package com.watchingy.model;
 /*
     connection in User
  */
-public class User {
+public class UserInfo {
     /*
     connection in mysql
      */
@@ -18,7 +18,7 @@ public class User {
     private String trueName;
     private String schoolId;
 
-    public User(){
+    public UserInfo(){
     }
 
     public int getHavingClass() {
