@@ -4,12 +4,16 @@ package com.watchingy.service;
 import com.watchingy.dao.ClassDao;
 import com.watchingy.model.ClassInfo;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 
 public class ClassService {
     ClassDao classDao;
     UserService userService = new UserService();
+
+    public ClassService() throws IOException {
+    }
 
     public void startClass(ClassInfo classForm) {
         //使用uid以及deteid创建数据库
