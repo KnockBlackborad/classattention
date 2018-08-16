@@ -1,8 +1,8 @@
 package com.watchingy.service;
 
-import com.watchingy.dao.UserDao;
+import com.watchingy.dao.UserInfoDao;
 import com.watchingy.exception.UserException;
-import com.watchingy.model.User;
+import com.watchingy.model.UserInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,15 +15,15 @@ import java.util.UUID;
 public class UserService {
     private InputStream inputStream;
     private SqlSessionFactory sqlSessionFactory;
-    private UserDao userDao;
+    private UserInfoDao userInfoDao;
     SqlSession session;
-    private User user;
+    private UserInfo userInfo;
 
     public UserService() throws IOException {
         inputStream = Resources.getResourceAsStream("classpath:mybatis-config.xml");
         sqlSessionFactory  = new SqlSessionFactoryBuilder().build(inputStream);
         session = sqlSessionFactory.openSession();
-        userDao = session.getMapper(UserDao.class);
+        userInfoDao = session.getMapper(UserInfoDao.class);
     }
 
 
@@ -31,9 +31,9 @@ public class UserService {
         return UUID.randomUUID().toString().replace("-", "").toUpperCase();
     }
     public boolean verifyEmail(String email){
-        user = userDao.findByEmail(email);
+        userInfo = userInfoDao.findByEmail(email);
         session.close();
-        if(user != null){
+        if(userInfo != null){
             return false;
         }else{
             return true;
@@ -41,8 +41,8 @@ public class UserService {
     }
 
     public boolean verifyUsername(String username){
-        user = userDao.findByUsername(username);
-        if(user != null){
+        userInfo = userInfoDao.findByUsername(username);
+        if(userInfo != null){
             return false;
         }else{
             return true;
@@ -50,8 +50,8 @@ public class UserService {
     }
 
     public boolean verifyPhone(String phone){
-        user = userDao.findByPhone(phone);
-        if(user != null){
+        userInfo = userInfoDao.findByPhone(phone);
+        if(userInfo != null){
             return false;
         }else{
             return true;
@@ -59,7 +59,7 @@ public class UserService {
     }
 
 
-    public void register(User form) throws UserException {
+    public void register(UserInfo form) throws UserException {
         if(!(verifyEmail(form.getEmail()) && verifyPhone(form.getPhone()) && verifyUsername(form.getUsername()))){
             throw new UserException("Error");
         }
@@ -69,37 +69,37 @@ public class UserService {
         form.setHavingClass(-1);
         form.setTrueName("NULL");
         form.setSchoolId("NULL");
-        userDao.add(form);
+        userInfoDao.add(form);
     }
 
     public void activate(String code) throws UserException {
-        User user = userDao.findByCode(code);
-        if (user == null) throw new UserException("激活失败");
-        if (user.isState()) throw new UserException("???激活了哟");
+        UserInfo userInfo = userInfoDao.findByCode(code);
+        if (userInfo == null) throw new UserException("激活失败");
+        if (userInfo.isState()) throw new UserException("???激活了哟");
 
-        userDao.updateState(user.getUid(), true);
+        userInfoDao.updateState(userInfo.getUid(), true);
     }
 
-    public User login(String username, String password) {
-        User user = userDao.findByUsername(username);
-        if (user == null) {
+    public UserInfo login(String username, String password) {
+        UserInfo userInfo = userInfoDao.findByUsername(username);
+        if (userInfo == null) {
             return null;
         }
-        if (userDao.checkPassword(username, password) != null)
-            return user;
+        if (userInfoDao.checkPassword(username, password) != null)
+            return userInfo;
         return null;
     }
 
     public void havingClass(String uid, int classId) {
-        userDao.updateHavingClass(uid, classId);
+        userInfoDao.updateHavingClass(uid, classId);
     }
 
-    public User getUserByUsername(String username) {
-        return userDao.findByUsername(username);
+    public UserInfo getUserByUsername(String username) {
+        return userInfoDao.findByUsername(username);
     }
 
-    public User getUserByUid(String uid) {
-        return userDao.findByUid(uid);
+    public UserInfo getUserByUid(String uid) {
+        return userInfoDao.findByUid(uid);
     }
 
     public void closeSession(){

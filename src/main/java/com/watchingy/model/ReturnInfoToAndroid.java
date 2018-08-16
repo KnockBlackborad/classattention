@@ -5,9 +5,9 @@ import java.util.Map;
 public class ReturnInfoToAndroid {
 
     private Map<String, String> errors;
-    private User form;
+    private UserInfo form;
 
-    public ReturnInfoToAndroid(Map<String, String> errors, User form) {
+    public ReturnInfoToAndroid(Map<String, String> errors, UserInfo form) {
         this.errors = errors;
         this.form = form;
     }
@@ -21,11 +21,11 @@ public class ReturnInfoToAndroid {
         this.errors = errors;
     }
 
-    public User getForm() {
+    public UserInfo getForm() {
         return form;
     }
 
-    public void setForm(User form) {
+    public void setForm(UserInfo form) {
         this.form = form;
     }
 }
