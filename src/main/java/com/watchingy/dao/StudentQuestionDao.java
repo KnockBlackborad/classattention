@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface StudentQuestionDao {
     void add(StudentQuestion studentQuestion);
-    List<StudentQuestion> getCourseInfoByUid(int classId);
+    List<StudentQuestion> getByUid(int classId);
 }

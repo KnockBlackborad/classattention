@@ -2,6 +2,7 @@ package com.watchingy.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.watchingy.dao.TestDaoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;

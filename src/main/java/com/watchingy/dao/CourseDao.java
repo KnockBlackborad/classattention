@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CourseDao {
     void add(Course course);
-    List<Course> getCourseInfoByUid(String uid);
+    List<Course> getByUid(String uid);
 }

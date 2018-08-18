@@ -20,10 +20,10 @@ public class UserService {
     private UserInfo userInfo;
 
     public UserService() throws IOException {
-        inputStream = Resources.getResourceAsStream("classpath:mybatis-config.xml");
-        sqlSessionFactory  = new SqlSessionFactoryBuilder().build(inputStream);
-        session = sqlSessionFactory.openSession();
-        userInfoDao = session.getMapper(UserInfoDao.class);
+        InputStream inputStream = Resources.getResourceAsStream("classpath:mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory  = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session = sqlSessionFactory.openSession();
+        UserInfoDao userInfoDao = session.getMapper(UserInfoDao.class);
     }
 
 

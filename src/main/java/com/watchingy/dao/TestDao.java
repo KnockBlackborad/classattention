@@ -1,7 +1,7 @@
 package com.watchingy.dao;
 
-import com.watchingy.model.User;
+import com.watchingy.model.UserInfo;
 
 public interface TestDao {
-    User testSelect(String username);
+    UserInfo testSelect(String username);
 }

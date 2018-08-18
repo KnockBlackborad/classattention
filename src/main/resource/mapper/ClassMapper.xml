@@ -1,14 +1,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.watchingy.model.UserInfo">
+<mapper namespace="com.watchingy.dao.ClassDao">
 
-    <select id="findByUidAndTime" resultType="com.watchingy.model.Class">
+    <select id="getByUidAndTime" resultType="com.watchingy.model.Class">
         SELECT * FROM class WHERE uid=#{uid} and createTime=#{createTime}
     </select>
 
     <!--返回list-->
-    <select id="findByUid" resultType="com.watchingy.model.Class">
+    <select id="getByUid" resultType="com.watchingy.model.Class">
         SELECT * FROM class WHERE uid=#{uid} and createTime=#{createTime}
     </select>
 
@@ -17,7 +17,7 @@
     </insert>
 
     <!--返回数值需+1-->
-    <select id="findClassOrder"  parameterType="int" resultType="int">
+    <select id="getClassOrder"  parameterType="int" resultType="int">
         SELECT COUNT(*) FROM class WHERE uid=#{uid}
     </select>
 

@@ -10,11 +10,6 @@ public class ClassDaoImpl implements ClassDao {
     private SqlSession sqlSession;
 
     @Override
-    public String getUid(String username) {
-        return (String) sqlSession.selectOne("com.watchingy.mapper.ClassMapper.getUid", username);
-    }
-
-    @Override
     public Class getByUidAndTime(String uid, Timestamp timestamp) {
         //return (ClassInfo) sqlSession.selectOne("com.watchingy.mapper.ClassMapper.getByUidAndTime", uid, timestamp);
         return null;
@@ -31,7 +26,7 @@ public class ClassDaoImpl implements ClassDao {
     }
 
     @Override
-    public int createClassOrder(String uid) {
+    public int getClassOrder(String uid) {
         return 0;
     }
 }

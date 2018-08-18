@@ -1,14 +1,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.watchingy.model.UserInfo">
+<mapper namespace="com.watchingy.dao.CourseNoteDao">
 
-    <select id="findByCourseId" parameterType="int">
-        SELECT * FROM courseNote WHERE courseId=#{courseId}
+    <select id="getByCourseId" parameterType="int">
+        SELECT * FROM course_note WHERE courseId=#{courseId}
     </select>
 
     <insert id="add" parameterType="com.watchingy.model.CourseNote">
-        INSERT INTO courseNote(title,content,createTtime) VALUE (#{title},#{content},#{createTtime})
+        INSERT INTO course_note(title,content,createTtime) VALUE (#{title},#{content},#{createTtime})
     </insert>
 
 </mapper>
