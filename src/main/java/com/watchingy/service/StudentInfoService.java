@@ -1,14 +1,14 @@
 package com.watchingy.service;
 
 import com.watchingy.dao.StudentInfoDao;
-import com.watchingy.model.StudentInfo;
+import com.watchingy.model.StudentAppInfo;
 
 public class StudentInfoService {
 
     StudentInfoDao studentInfoDao;
 
-    public void add(StudentInfo studentInfo){
-        studentInfoDao.add(studentInfo);
+    public void add(StudentAppInfo studentAppInfo){
+        studentInfoDao.add(studentAppInfo);
     }
 
 

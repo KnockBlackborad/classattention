@@ -1,6 +1,6 @@
 package com.watchingy.dao;
 
-import com.watchingy.model.ClassInfo;
+import com.watchingy.model.Class;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.Timestamp;
@@ -15,18 +15,18 @@ public class ClassDaoImpl implements ClassDao {
     }
 
     @Override
-    public ClassInfo getByUidAndTime(String uid, Timestamp timestamp) {
+    public Class getByUidAndTime(String uid, Timestamp timestamp) {
         //return (ClassInfo) sqlSession.selectOne("com.watchingy.mapper.ClassMapper.getByUidAndTime", uid, timestamp);
         return null;
     }
 
     @Override
-    public List<ClassInfo> getByUid(String id) {
+    public List<Class> getByUid(String id) {
         return null;
     }
 
     @Override
-    public void add(ClassInfo classInfo) {
+    public void add(Class aClass) {
 
     }
 

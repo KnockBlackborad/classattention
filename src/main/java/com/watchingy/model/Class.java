@@ -1,7 +1,7 @@
 package com.watchingy.model;
 import java.sql.Timestamp;
 
-public class ClassInfo {
+public class Class {
     private int classId;
     private String uid;
     private Timestamp startClassTime;

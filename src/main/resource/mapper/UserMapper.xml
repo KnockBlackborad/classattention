@@ -6,6 +6,10 @@
     <select id="findByUsername" resultType="com.watchingy.model.UserInfo">
         SELECT * FROM userInfo WHERE username=#{username}
     </select>
+    
+    <select id="findUidByUsername" resultType="String">
+        SELECT uid FROM userInfo WHERE username=#{username}
+    </select>
 
     <select id="findByEmail" resultType="com.watchingy.model.UserInfo">
         SELECT * FROM userInfo WHERE email=#{email}

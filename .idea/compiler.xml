@@ -9,5 +9,8 @@
         <module name="classattention" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="classattention" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

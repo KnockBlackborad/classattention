@@ -1,10 +1,10 @@
 package com.watchingy.dao;
 
-import com.watchingy.model.StudentInfo;
+import com.watchingy.model.StudentAppInfo;
 
 public interface StudentInfoDao {
 
-    void add(StudentInfo studentInfo);
+    void add(StudentAppInfo studentAppInfo);
 
     String getJsonByClassId(int classId);
 

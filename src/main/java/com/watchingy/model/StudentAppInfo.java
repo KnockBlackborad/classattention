@@ -2,19 +2,13 @@ package com.watchingy.model;
 
 import java.util.List;
 
-public class StudentInfo {
+public class StudentAppInfo {
     private String uid;
     private int classId;
     private String trueName;
     private String schoolId;
 
     private List<AppInfo> appInfoList;
-    private static class AppInfo
-    {
-        private String appIcon;
-        private String appLabel;
-        private String appUsedTime;
-    }
 
     public String getUid() {
         return uid;

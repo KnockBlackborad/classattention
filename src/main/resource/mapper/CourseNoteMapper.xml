@@ -3,43 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.watchingy.model.UserInfo">
 
-    <select id="findByUsername" resultType="com.watchingy.model.UserInfo">
-        SELECT * FROM userInfo WHERE username=#{username}
+    <select id="findByCourseId" parameterType="int">
+        SELECT * FROM courseNote WHERE courseId=#{courseId}
     </select>
 
-    <select id="findByEmail" resultType="com.watchingy.model.UserInfo">
-        SELECT * FROM userInfo WHERE email=#{email}
-    </select>
-
-    <select id="findByPhone" resultType="com.watchingy.model.UserInfo">
-        SELECT * FROM userInfo WHERE phone=#{phone}
-    </select>
-
-    <select id="findByUid" resultType="com.watchingy.model.UserInfo">
-        SELECT * FROM userInfo WHERE uid=#{uid}
-    </select>
-
-    <select id="findByCode" resultType="com.watchingy.model.UserInfo">
-        SELECT * FROM userInfo WHERE code=#{code}
-    </select>
-
-    <update id="updateState" parameterType="String">
-        UPDATE userinfo SET state=#{state} WHERE uid=#{uid}
-    </update>
-
-    <update id="updateTrueName" parameterType="String">
-        UPDATE userinfo SET trueName=#{trueName} WHERE uid=#{uid}
-    </update>
-
-    <update id="updateHavingClass" parameterType="String">
-        UPDATE userinfo SET havingClass=#{classId} WHERE uid=#{uid}
-    </update>
-
-    <insert id="add" parameterType="com.watchingy.model.UserInfo">
-        INSERT INTO userinfo(uid,username,password,email,code,state,phone,uclassNumber,trueName,schoolId,havingClass)
-                    value(#{uid},#{username},#{password},#{email},#{code},#{state},#{phone},#{uclassNumber},#{trueName},#{schoolId},#{havingClass})
-                     on duplicate key update password=VALUES(password),email=VALUES(email),phone=VALUES(phone)
+    <insert id="add" parameterType="com.watchingy.model.CourseNote">
+        INSERT INTO courseNote(title,content,createTtime) VALUE (#{title},#{content},#{createTtime})
     </insert>
-
 
 </mapper>

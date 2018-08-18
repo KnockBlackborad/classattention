@@ -2,7 +2,7 @@ package com.watchingy.service;
 
 
 import com.watchingy.dao.ClassDao;
-import com.watchingy.model.ClassInfo;
+import com.watchingy.model.Class;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -15,21 +15,21 @@ public class ClassService {
     public ClassService() throws IOException {
     }
 
-    public void startClass(ClassInfo classForm) {
+    public void startClass(Class classForm) {
         //使用uid以及deteid创建数据库
         classForm.setClassOrder(classDao.createClassOrder(classForm.getUid()));
         classDao.add(classForm);
-        ClassInfo classInfo = classDao.getByUidAndTime(classForm.getUid(), classForm.getStartClassTime());
-        userService.havingClass(classInfo.getUid(), classInfo.getClassId());
+        Class aClass = classDao.getByUidAndTime(classForm.getUid(), classForm.getStartClassTime());
+        userService.havingClass(aClass.getUid(), aClass.getClassId());
     }
 
-    public List<ClassInfo> getByUid(String uid) {
+    public List<Class> getByUid(String uid) {
         return classDao.getByUid(uid);
     }
 
-    public ClassInfo getClassInfo(String uid, Timestamp timestamp) {
-        ClassInfo classInfo = classDao.getByUidAndTime(uid, timestamp);
-        return classInfo;
+    public Class getClassInfo(String uid, Timestamp timestamp) {
+        Class aClass = classDao.getByUidAndTime(uid, timestamp);
+        return aClass;
     }
 
 }

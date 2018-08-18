@@ -1,13 +1,15 @@
-package com.watchingy.model;
+package com.watchingy.vo;
+
+import com.watchingy.model.UserInfo;
 
 import java.util.Map;
 
-public class ReturnInfoToAndroid {
+public class ReturnInfoToAndroidVo {
 
     private Map<String, String> errors;
     private UserInfo form;
 
-    public ReturnInfoToAndroid(Map<String, String> errors, UserInfo form) {
+    public ReturnInfoToAndroidVo(Map<String, String> errors, UserInfo form) {
         this.errors = errors;
         this.form = form;
     }
