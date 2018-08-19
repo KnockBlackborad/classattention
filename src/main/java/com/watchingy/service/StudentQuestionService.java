@@ -14,6 +14,6 @@ public class StudentQuestionService {
     }
 
     public List<StudentQuestion> getStudentQuestion(int classId) {
-        return studentQuestionDao.getCourseInfoByUid(classId);
+        return studentQuestionDao.getByUid(classId);
     }
 }

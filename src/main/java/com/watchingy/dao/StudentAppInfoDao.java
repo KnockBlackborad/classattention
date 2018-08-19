@@ -5,7 +5,7 @@ import com.watchingy.vo.StudentAppInfoVo;
 
 import java.util.List;
 
-public interface StudentInfoDao {
+public interface StudentAppInfoDao {
 
     void add(StudentAppInfo studentAppInfo);
 

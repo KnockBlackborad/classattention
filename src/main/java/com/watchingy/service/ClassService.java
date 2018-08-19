@@ -17,7 +17,7 @@ public class ClassService {
 
     public void startClass(Class classForm) {
         //使用uid以及deteid创建数据库
-        classForm.setClassOrder(classDao.createClassOrder(classForm.getUid()));
+        classForm.setClassOrder(classDao.getClassOrder(classForm.getUid())+1);
         classDao.add(classForm);
         Class aClass = classDao.getByUidAndTime(classForm.getUid(), classForm.getStartClassTime());
         userService.havingClass(aClass.getUid(), aClass.getClassId());

@@ -7,8 +7,7 @@ public class StudentAppInfo {
     private int classId;
     private String trueName;
     private String schoolId;
-
-    private List<AppInfo> appInfoList;
+    private String appInfoList;
 
     public String getUid() {
         return uid;
@@ -42,11 +41,11 @@ public class StudentAppInfo {
         this.classId = classId;
     }
 
-    public List<AppInfo> getAppInfoList() {
+    public String getAppInfoList() {
         return appInfoList;
     }
 
-    public void setAppInfoList(List<AppInfo> appInfoList) {
+    public void setAppInfoList(String appInfoList) {
         this.appInfoList = appInfoList;
     }
 }

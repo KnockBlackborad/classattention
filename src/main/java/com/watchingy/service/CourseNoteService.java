@@ -13,6 +13,6 @@ public class CourseNoteService {
     }
 
     public CourseNote getCourseNote(int courseId) {
-        return courseNoteDao.getCourseNoteByCourseId(courseId);
+        return courseNoteDao.getByCourseId(courseId);
     }
 }

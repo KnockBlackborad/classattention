@@ -14,7 +14,7 @@ public class CourseService {
     }
 
     public List<Course> getCourseInfo(String uid) {
-        List<Course> courseList = courseDao.getCourseInfoByUid(uid);
+        List<Course> courseList = courseDao.getByUid(uid);
         return courseList;
     }
 }
